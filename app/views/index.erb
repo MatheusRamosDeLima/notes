@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang='en'>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel='stylesheet' href='/css/reset.css'>
+		<link rel='stylesheet' href='/css/index.css'>
+		<title>Anotações</title>
+	</head>
+	<body>
+		<h1>ANOTAÇÕES</h1>
+		<div>
+			<a href='create_note'>Criar anotação</a>
+			<div id='notes'>
+				<% unless notes.empty? %>
+					<% for note in notes %>
+						<% note['id'] = note['rowid'] %>
+						<div class='note'>
+							<a href="/note/<%= note['id'] %>" class='note_info'>
+								<p>Id: <%= note['id'] %></p>
+								<h1><%= note['title'] %></h1>
+								<p><%= note['body'] %></p>
+							</a>
+							<div>
+								<a href="/edit_note/<%= note['id'] %>">Editar</a>
+								<form action="delete_note/<%= note['id'] %>" method='post' onsubmit="return confirm('Você irá deletar a anotação <%= note['title'] %>, ok?')">
+									<button>Delete</button>
+								</form>
+							</div>
+						</div>
+					<% end %>
+				<% else %>
+					<p>Nenhuma anotação disponível!</p>
+				<% end %>
+			</div>
+		</div>
+	</body>
+</html>

@@ -1,0 +1,17 @@
+<% note['id'] = note['rowid'] %>
+<!DOCTYPE html>
+<html lang='en'>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Editar Anotação</title>
+	</head>
+	<body>
+		<h1>EDITAR ANOTAÇÃO</h1>
+		<form action="/update_note/<%= note['id'] %>" method='post' style='display: flex; flex-direction: column; gap: 5px; width: 100%; max-width: 700px'>
+			<input type='text' name='note_title' value="<%= note['title'] %>">
+			<textarea name='note_body'><%= note['body'] %></textarea>
+			<button>Editar anotação</button>
+		</form>
+	</body>
+</html>

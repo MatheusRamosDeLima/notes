@@ -1,0 +1,20 @@
+#notes {
+	display: flex;
+	flex-direction: column;
+	gap: 20px;
+
+	width: fit-content;
+	margin: auto;
+}
+
+.note {
+	background-color: #efefef;
+	width: calc(100vw - 15px);
+	max-width: 700px
+}
+
+.note_info {
+	display: flex;
+	flex-direction: column;
+	gap: 5px;
+}
